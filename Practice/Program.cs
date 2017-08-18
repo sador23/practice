@@ -1,4 +1,5 @@
 ﻿using Practice.Design_Patterns;
+using Practice.Design_Patterns.Decorator;
 using Practice.Design_Patterns.Factory;
 using Practice.Design_Patterns.Singleton;
 using System;
@@ -26,6 +27,9 @@ namespace Practice
 
             //State Design Pattern
             StatePattern();
+
+            //Decorator Design Pattern
+            DecoratorDesign();
 
         }
 
@@ -69,6 +73,16 @@ namespace Practice
         {
             Admin admin = Admin.GetAdmin("John");
             Console.WriteLine(admin.name.Equals(Admin.GetAdmin("Hugh").name));
+        }
+
+        static void DecoratorDesign()
+        {
+            Manager manager = new Manager("John");
+            Console.WriteLine(manager);
+            YearlyBonusDecorator yearly = new YearlyBonusDecorator(manager.name,manager);
+            Console.WriteLine(yearly);
+            AwardBonusDecorator award = new AwardBonusDecorator(yearly.name, yearly);
+            Console.WriteLine(award);
         }
     }
 }

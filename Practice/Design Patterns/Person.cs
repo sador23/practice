@@ -17,6 +17,11 @@ namespace Practice.Design_Patterns
             this.name = name;
         }
 
+        public virtual int GetSalary()
+        {
+            return salary;
+        }
+
         public override string ToString()
         {
             return this.name + " is a " + this.GetType().Name + " and earns " + this.salary;
