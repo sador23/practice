@@ -11,35 +11,37 @@ namespace Practice
         static void Main(string[] args)
         {
             //DELEGATE
-            DelegateMethods();
+            //DelegateMethods();
 
             //LAMBDAS
-            Lambdas lambdas = new Lambdas();
+            //Lambdas lambdas = new Lambdas();
 
             //LINQ
             LinqMethods();
 
             //Factory Design Pattern
-            FactoryDesign();
+            //FactoryDesign();
 
             //Singleton Design Pattern
-            SingletonDesign();
+            //SingletonDesign();
 
             //State Design Pattern
-            StatePattern();
+            //StatePattern();
 
             //Decorator Design Pattern
-            DecoratorDesign();
+            //DecoratorDesign();
 
         }
 
         static void LinqMethods()
         {
+            Animal[] animals = new Animal[5] { new Animal("cat", 5), new Animal("hamster", 3), new Animal("parrot", 30), new Animal("snake", 15), new Animal("dog", 10) };
             Linq linq = new Linq();
             linq.GreaterThan(40);
             linq.GreaterThanLamdba(40);
             linq.getMax();
             linq.GetMaxLonger();
+            linq.GroupByLinq(animals);
         }
 
         static void StatePattern()

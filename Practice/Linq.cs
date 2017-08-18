@@ -11,7 +11,7 @@ namespace Practice
 
         public Linq()
         {
-            numbers = new int[] { 1, 6, 10,5,9,22,32,78,21,68,65,34,26,89 };
+            numbers = new int[] { 1, 6, 10, 5, 9, 22, 32, 78, 21, 68, 65, 34, 26, 89 };
         }
 
         //Select every number from numbers, which are greater than n
@@ -22,7 +22,7 @@ namespace Practice
                           where num > n
                           select num;
             ConsoleWriter(greater);
-            
+
         }
         //Select every number from numbers with LAMBDA, which are greater than n
         public void GreaterThanLamdba(int n)
@@ -56,6 +56,27 @@ namespace Practice
                 Console.Write(num + ", ");
             }
             Console.WriteLine();
+        }
+
+        public void GroupByLinq(Animal[] animals)
+        {
+            var query = from anims in animals
+                        group anims by anims.age into animgrp
+                        orderby animgrp.Key
+                        select animgrp;
+
+            var queryLine = animals.GroupBy(x => x.age).OrderBy(x => x.Key);
+
+            foreach (var animalgroup in queryLine)
+            {
+                foreach (Animal animal in animalgroup)
+                {
+                    Console.WriteLine(animal.age);
+                }
+            }
+
+
+            
         }
     }
 }
