@@ -24,6 +24,9 @@ namespace Practice
             //Singleton Design Pattern
             SingletonDesign();
 
+            //State Design Pattern
+            StatePattern();
+
         }
 
         static void LinqMethods()
@@ -33,6 +36,15 @@ namespace Practice
             linq.GreaterThanLamdba(40);
             linq.getMax();
             linq.GetMaxLonger();
+        }
+
+        static void StatePattern()
+        {
+            Animal[] animals = new Animal[5] { new Animal("cat", 5), new Animal("hamster", 3), new Animal("parrot", 30), new Animal("snake", 15), new Animal("dog", 10) };
+            foreach(Animal animal in animals)
+            {
+                animal.GetAbility();
+            }
         }
 
         static void DelegateMethods()

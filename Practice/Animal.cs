@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Practice.Design_Patterns.State;
+using System;
 using System.Collections.Generic;
 using System.Numerics;
 using System.Text;
@@ -11,12 +12,20 @@ namespace Practice
         public string name;
         public int age;
         private static List<Animal> animals = new List<Animal>();
+        private Ability ability;
+        private static Random rand = new Random();
 
         public Animal(string name, int age)
         {
             this.name = name;
             this.age = age;
             animals.Add(this);
+            this.ability = rand.Next(3) == 1 ? new FireBreathing() : ability = new Normal();
+        }
+
+        public void GetAbility()
+        {
+            this.ability.AddAbility(name);
         }
 
         //Use [] indexer to access Animals
