@@ -8,11 +8,15 @@ namespace Practice
     {
         public delegate int ExampleMethod(Animal animal);
 
-        public Delegates(Animal [] animals)
+        //Anonymus function with Delegate
+        public delegate int NewDelegate(int i);
+
+        public Delegates(Animal[] animals)
         {
-            string topAge = GetTopAnimals(animals, x=>x.age);
-            string topName = GetTopAnimals(animals, x=>x.name.Length);
+            string topAge = GetTopAnimals(animals, x => x.age);
+            string topName = GetTopAnimals(animals, x => x.name.Length);
             Console.WriteLine("Longest name is : " + topName + " , and the best age is : " + topAge);
+            NewDelegate del = delegate (int i) { return i*2; };
         }
         /*
         public int LongestName(Animal animal)
@@ -25,11 +29,11 @@ namespace Practice
             return animal.age;
         }*/
 
-        public string GetTopAnimals( Animal [] animals, ExampleMethod exampleCaller)
+        public string GetTopAnimals(Animal[] animals, ExampleMethod exampleCaller)
         {
             string name = "";
             int best = 0;
-            foreach(Animal animal in animals)
+            foreach (Animal animal in animals)
             {
                 int current = exampleCaller(animal);
                 if (best < current)
@@ -40,9 +44,5 @@ namespace Practice
             }
             return name;
         }
-
-        
-        
-        
     }
 }
