@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Xml.Linq;
 
 namespace Practice
 {
@@ -74,9 +75,44 @@ namespace Practice
                     Console.WriteLine(animal.age);
                 }
             }
+        }
+
+        public void SelectMultipleCol(Animal [] animals) {
+            var query = from animal in animals
+                        where animal.age > 5
+                        select new { Name = animal.name, Age = animal.age };
+
+            //For selecting only one, simply use select animal.Name; for example
+            foreach(var anim in query)
+            {
+                Console.WriteLine(anim.Age);
+                Console.WriteLine(anim.Name);
+            }
+        }
 
 
-            
+        public void LinqToXML(Animal [] animals)
+        {
+            var studentsToXML = new XElement("Root",
+            from animal in animals
+            select new XElement("animal",
+                       new XElement("Name", animal.name),
+                       new XElement("Age", animal.age)
+                    )
+                );
+            Console.WriteLine(studentsToXML);
+        }
+
+
+        public void OperationOnSource()
+        {
+            var query = from number in numbers
+                        select String.Format("Area = {0}", (number * number * 3.14));
+
+            foreach(string item in query)
+            {
+                Console.WriteLine(item);
+            }
         }
     }
 }

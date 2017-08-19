@@ -42,6 +42,9 @@ namespace Practice
             linq.getMax();
             linq.GetMaxLonger();
             linq.GroupByLinq(animals);
+            linq.LinqToXML(animals);
+            linq.OperationOnSource();
+
         }
 
         static void StatePattern()
