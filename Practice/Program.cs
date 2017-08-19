@@ -37,13 +37,15 @@ namespace Practice
         {
             Animal[] animals = new Animal[5] { new Animal("cat", 5), new Animal("hamster", 3), new Animal("parrot", 30), new Animal("snake", 15), new Animal("dog", 10) };
             Linq linq = new Linq();
-            linq.GreaterThan(40);
-            linq.GreaterThanLamdba(40);
-            linq.getMax();
-            linq.GetMaxLonger();
-            linq.GroupByLinq(animals);
-            linq.LinqToXML(animals);
-            linq.OperationOnSource();
+            //linq.GreaterThan(40);
+            //linq.GreaterThanLamdba(40);
+            //linq.getMax();
+            //linq.GetMaxLonger();
+            //linq.GroupByLinq(animals);
+            //linq.LinqToXML(animals);
+            //linq.OperationOnSource();
+            linq.Identifier(animals);
+            linq.SelectIdentifierNew(animals);
 
         }
 

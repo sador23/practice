@@ -103,7 +103,7 @@ namespace Practice
             Console.WriteLine(studentsToXML);
         }
 
-
+        //Calls operations in linq
         public void OperationOnSource()
         {
             var query = from number in numbers
@@ -114,5 +114,42 @@ namespace Practice
                 Console.WriteLine(item);
             }
         }
+
+        public void Identifier(Animal [] animals)
+        {
+            var query = from animal in animals
+                        let life_expectency = (int)(animal.age / 2)
+                        where life_expectency > 4
+                        group animal by life_expectency into anim_grp
+                        orderby anim_grp.Key
+                        select anim_grp;
+
+            foreach(var animal in query)
+            {
+                foreach(Animal anim in animal)
+                {
+                    Console.WriteLine(anim.age);
+                }
+            }
+        }
+
+        public void SelectIdentifierNew(Animal [] animals)
+        {
+            var query = from animal in animals
+                        let life_expectency = (int)(animal.age / 2)
+                        where life_expectency > 4
+                        group animal by animal.name into animgrp
+                        orderby animgrp.OrderBy(x => x.age)
+                        select new { Average = animgrp.Average(x => x.age),
+                                     Key = animgrp.Key};
+
+            foreach(var grp in query)
+            {
+                Console.WriteLine(grp.Key + "," + grp.Average);
+            }
+        }
+
+
+
     }
 }
